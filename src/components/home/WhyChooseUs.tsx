@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 export default function WhyChooseUs() {
     const features = [
         {
@@ -18,7 +20,12 @@ export default function WhyChooseUs() {
     ];
 
     return (
-        <section className="py-16 px-6 bg-white text-center">
+        <motion.section
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 1 }}
+            className="py-16 px-6 bg-white text-center">
             <h2 className="text-3xl font-bold mb-10 text-gray-800">Why Choose Velvet Voyage</h2>
             <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 max-w-5xl mx-auto">
                 {features.map((feature, index) => (
@@ -29,6 +36,6 @@ export default function WhyChooseUs() {
                     </div>
                 ))}
             </div>
-        </section>
+        </motion.section>
     );
 }

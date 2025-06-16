@@ -1,6 +1,13 @@
+import { motion } from "framer-motion";
+
 export default function Newsletter() {
     return (
-        <section className="py-16 px-6 bg-white text-center">
+        <motion.section
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 1 }}
+            className="py-16 px-6 bg-white text-center">
             <h2 className="text-3xl font-bold mb-4 text-gray-800">Stay in the Loop</h2>
             <p className="text-gray-600 mb-6 max-w-xl mx-auto">
                 Subscribe to get exclusive travel deals, updates, and inspiration delivered to your inbox.
@@ -21,6 +28,6 @@ export default function Newsletter() {
                     Subscribe
                 </button>
             </form>
-        </section>
+        </motion.section>
     );
 }

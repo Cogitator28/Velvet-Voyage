@@ -1,4 +1,6 @@
-export default function Testimonials() {
+import { motion } from "framer-motion";
+
+export default function xTestimonials() {
     const reviews = [
         {
             name: "Sarah L.",
@@ -15,7 +17,12 @@ export default function Testimonials() {
     ];
 
     return (
-        <section className="py-16 px-6 bg-gray-100">
+        <motion.section
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 1 }}
+            className="py-16 px-6 bg-gray-100">
             <h2 className="text-3xl font-bold text-center mb-10 text-gray-800">What Our Travelers Say</h2>
             <div className="max-w-4xl mx-auto grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
                 {reviews.map((review, index) => (
@@ -25,6 +32,6 @@ export default function Testimonials() {
                     </div>
                 ))}
             </div>
-        </section>
+        </motion.section>
     );
 }

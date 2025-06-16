@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 const destinations = [
     {
         name: "Bali",
@@ -27,34 +29,38 @@ const destinations = [
 
 export default function Destinations() {
     return (
-        <section className="py-16 px-6 bg-gray-50">
+        <motion.section
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 1 }}
+            className="py-16 px-6 bg-gray-50">
             <h2 className="text-3xl font-bold text-center mb-10">Top Destinations</h2>
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 max-w-7xl mx-auto perspective">
                 {destinations.map((dest) => (
-                    <div
+                    <motion.div
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1 }}
+                        viewport={{ once: false, amount: 0.2 }}
                         key={dest.name}
                         className="group w-full h-64 [transform-style:preserve-3d] transition-transform duration-700 hover:[transform:rotateY(180deg)] relative"
                     >
                         {/* FRONT SIDE */}
                         <div className="absolute inset-0 [backface-visibility:hidden] bg-[#000080] rounded-lg overflow-hidden shadow-md">
-                            <img
-                                src={dest.image}
-                                alt={dest.name}
-                                className="w-full h-48 object-cover"
-                            />
+                            <img src={dest.image} alt={dest.name} className="w-full h-48 object-cover" />
                             <div className="p-4 text-center font-semibold text-[#FFA500] font-serif">
                                 {dest.name}
                             </div>
                         </div>
-
                         {/* BACK SIDE */}
                         <div className="absolute inset-0 [transform:rotateY(180deg)] [backface-visibility:hidden] bg-[#FFA500] text-[#000080] rounded-lg p-4 flex flex-col items-center justify-center text-center font-serif">
                             <h3 className="text-xl font-bold mb-2">{dest.name}</h3>
                             <p className="text-sm">{dest.description}</p>
                         </div>
-                    </div>
+                    </motion.div>
                 ))}
             </div>
-        </section>
+        </motion.section>
     );
 }
