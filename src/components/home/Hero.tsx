@@ -43,7 +43,7 @@ export default function Hero() {
                     transition={{ delay: 0.3, duration: 0.6 }}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
-                    className="bg-[#000080] text-[#FFA500] px-6 py-3 font-semibold rounded-md shadow-md hover:bg-[#FFA500] hover:text-[#000080] cursor-pointer transition duration-500 hover:scale-110">
+                    className="bg-[#000080] [transform-style:preserve-3d] hover:[transform:rotateY(180deg)] text-[#FFA500] px-6 py-3 font-semibold rounded-md shadow-md hover:bg-[#FFA500] hover:text-[#000080] cursor-pointer transition duration-500 hover:scale-110">
                     Start Your Journey
                 </motion.button>
             </section>

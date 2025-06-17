@@ -39,10 +39,6 @@ export default function Destinations() {
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 max-w-7xl mx-auto perspective">
                 {destinations.map((dest) => (
                     <motion.div
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1 }}
-                        viewport={{ once: false, amount: 0.2 }}
                         key={dest.name}
                         className="group w-full h-64 [transform-style:preserve-3d] transition-transform duration-700 hover:[transform:rotateY(180deg)] relative"
                     >
